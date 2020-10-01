@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="icon" href="images/meteor.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a8753e4aed.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>
+        <div class="row d-flex flex-nowrap">
+          <div class="col-sm-12">
+            <div class="row d-flex flex-nowrap">
+              <div class="col-sm-6.5 city-search">
+                <span class="search-bar">
+                  <form id="city-search">
+                    <input type="text" name="city-input" id="city-input" />
+                    <input
+                      id="search-button"
+                      type="submit"
+                      class="btn btn-secondary"
+                      value="Search"
+                    />
+                  </form>
+                </span>
+              </div>
+              <div class="col-sm-2.5 local-button">
+                <button
+                  id="local-button"
+                  type="submit"
+                  class="btn btn-secondary"
+                >
+                  Local
+                </button>
+              </div>
+              <div class="col-sm-3 toggle-unit toggle-unit-bar">
+                <a href="#" id="toggle-celcius" class="toggle-unit">°C</a>/<a
+                  href="#"
+                  id="toggle-fahrenheit"
+                  class="toggle-unit"
+                  >°F</a
+                >
+              </div>
+            </div>
+
+            <div class="row d-flex flex-nowrap">
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col" id="current-city"></div>
+                  <div class="w-100"></div>
+                  <div id="current-conditions" class="col current-conditions">
+                    Sunny
+                  </div>
+                  <div class="col current-temp-range temperature">
+                    <span id="current-temp-max">1</span
+                    ><span class="unit">°C</span>/<span id="current-temp-min"
+                      >1</span
+                    ><span class="unit">°C</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="row d-flex flex-nowrap">
+                  <div class="col-sm-6">
+                    <span
+                      id="current-temp"
+                      class="current-temp temperature"
+                    ></span
+                    ><span id="current-temp-unit" class="current-temp unit"
+                      >°C</span
+                    >
+                  </div>
+                  <div class="col-sm-6 current-icon">
+                    <span>
+                      <i class="fas fa-sun"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row d-flex flex-nowrap">
+              <div class="col weather-alert">
+                <em
+                  >...Weather Alert.........Weather Alert.........Weather
+                  Alert......</em
+                >
+              </div>
+            </div>
+
+            <div class="row d-flex flex-nowrap">
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <span class="card-text">
+                      <span class="first-day">Monday</span>
+                      <br />
+                      <span class="first-weather">Sunny</span>
+                      <br />
+                      <span class="first-icon">
+                        <i class="fas fa-sun"></i>
+                      </span>
+                      <br />
+                      <span class="first-temp-range temperature"
+                        >26°C/20°C</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <span class="card-text">
+                      <span class="second-day">Tuesday</span>
+                      <br />
+                      <span class="second-weather">Cloudy</span>
+                      <br />
+                      <span class="second-icon">
+                        <i class="fas fa-cloud"></i>
+                      </span>
+                      <br />
+                      <span class="second-temp-range temperature"
+                        >26°C/20°C</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <span class="card-text">
+                      <span class="third-day">Wednesday</span>
+                      <br />
+                      <span class="third-weather">Rainy</span>
+                      <br />
+                      <span class="third-icon">
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                      </span>
+                      <br />
+                      <span class="third-temp-range temperature"
+                        >26°C/20°C</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <span class="card-text">
+                      <span class="fourth-day">Thursday</span>
+                      <br />
+                      <span class="fourth-weather">Snowy</span>
+                      <br />
+                      <span class="fourth-icon">
+                        <i class="far fa-snowflake"></i>
+                      </span>
+                      <br />
+                      <span class="fourth-temp-range temperature"
+                        >26°C/20°C</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <span class="card-text">
+                      <span class="fifth-day">Friday</span>
+                      <br />
+                      <span class="fifth-weather">Frogs</span>
+                      <br />
+                      <span class="fifth-icon">
+                        <i class="fas fa-frog"></i>
+                      </span>
+                      <br />
+                      <span class="fifth-temp-range temperature"
+                        >26°C/20°C</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </h1>
+      <h3 id="page-date">date</h3>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

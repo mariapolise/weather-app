@@ -1,0 +1,140 @@
+h1 {
+  margin: 0;
+  padding: 1.5rem;
+  border-style: solid;
+  font-family: "Orbitron", sans-serif;
+  background-image: linear-gradient(
+    to top,
+    lightgrey 0%,
+    lightgrey 1%,
+    #e0e0e0 26%,
+    #efefef 48%,
+    #d9d9d9 75%,
+    #bcbcbc 100%
+  );
+  height: 25rem;
+  width: 45rem;
+}
+
+a.toggle-unit:hover {
+  text-decoration: none;
+  color: #212529;
+  font-weight: bold;
+}
+.col,
+.row {
+  padding: 0;
+  margin: 0;
+}
+.col-sm-12 {
+  padding: 0;
+}
+#local-button {
+  display: inline;
+  vertical-align: top;
+}
+.local-button {
+  padding: 0.1rem;
+}
+
+.city-search {
+  padding: 0.1rem;
+  text-align: left;
+  font-size: 1.5rem;
+}
+#city-input {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.toggle-unit {
+  color: #212529;
+  text-align: right;
+  font-size: 1.5rem;
+}
+.toggle-unit-bar {
+  position: relative;
+  left: 3rem;
+}
+#current-city {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: capitalize;
+  position: relative;
+  top: 1rem;
+}
+.current-temp {
+  font-size: 3.2rem;
+  text-align: center;
+  position: relative;
+  top: 2rem;
+}
+.current-icon {
+  text-align: center;
+  font-size: 7.5rem;
+  position: relative;
+  left: 1rem;
+}
+.current-conditions,
+.current-temp-range {
+  position: relative;
+  top: 2.3rem;
+  left: 1rem;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+.weather-alert {
+  background-color: rgb(218, 189, 187);
+  font-size: 1.2rem;
+  margin: 0.2rem 0.2rem 0.6rem;
+  padding: 0.2rem;
+  border-style: solid;
+}
+.card {
+  margin: 0;
+  border: none;
+  background: none;
+  height: 8rem;
+  width: 8rem;
+}
+.card-body {
+  border-radius: 3.5rem;
+  padding: 0;
+  text-align: center;
+  margin: 0.3rem;
+  font-size: 1rem;
+  background-image: linear-gradient(
+    to top,
+    #c4c5c7 0%,
+    #dcdddf 52%,
+    #ebebeb 100%
+  );
+}
+.card-text {
+  position: relative;
+  top: 1.5rem;
+}
+
+.first-day,
+.second-day,
+.third-day,
+.fourth-day,
+.fifth-day {
+  font-size: 0.9rem;
+}
+.first-weather,
+.second-weather,
+.third-weather,
+.fourth-weather,
+.fifth-weather {
+  font-size: 0.7rem;
+}
+.first-temp-range,
+.second-temp-range,
+.third-temp-range,
+.fourth-temp-range,
+.fifth-temp-range {
+  font-size: 0.5rem;
+}
+#page-date {
+  padding: 0.2rem;
+  font-size: 0.5rem;
+}
