@@ -91,16 +91,23 @@ function showCityData(response) {
   let currentConditions = document.querySelector("#current-conditions");
   let currentTempMax = document.querySelector("#current-temp-max");
   let currentTempMin = document.querySelector("#current-temp-min");
+  let currentIcon = document.querySelector("#current-icon");
   let city = response.data.name;
   let temp = Math.round(response.data.main.temp);
   let conditions = response.data.weather[0].description;
   let tempMax = Math.round(response.data.main.temp_max);
   let tempMin = Math.round(response.data.main.temp_min);
+  let icon = response.data.weather[0].icon;
   currentCity.innerHTML = `${city}`;
   currentTemp.innerHTML = `${temp}`;
   currentConditions.innerHTML = `${conditions}`;
   currentTempMax.innerHTML = `${tempMax}`;
   currentTempMin.innerHTML = `${tempMin}`;
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  currentIcon.setAttribute("alt", `${conditions} icon`);
   console.log(response.data);
 }
 
