@@ -47,6 +47,7 @@ function cityInput(event) {
 
 function getCityData(response) {
   let city = `q=${response}`;
+  let units = `metric`;
   let apiKey = `aff49264e3b244a0afae2d8202fca638`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
   axios
@@ -61,6 +62,7 @@ function getLocation() {
 function getLocalData(position) {
   let latitude = `lat=${position.coords.latitude}`;
   let longitude = `lon=${position.coords.longitude}`;
+  let units = `metric`;
   let apiKey = `aff49264e3b244a0afae2d8202fca638`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
   axios
@@ -70,25 +72,19 @@ function getLocalData(position) {
 
 function showCityData(response) {
   let currentCity = document.querySelector("#current-city");
-  let currentTemp = document.querySelector("#current-temp");
   let currentConditions = document.querySelector("#current-conditions");
-  let currentTempMax = document.querySelector("#current-temp-max");
-  let currentTempMin = document.querySelector("#current-temp-min");
   let currentIcon = document.querySelector("#current-icon");
   let city = response.data.name;
-
-  metricTemp = response.data.main.temp;
-
-  let temp = Math.round(metricTemp);
   let conditions = response.data.weather[0].description;
-  let tempMax = Math.round(response.data.main.temp_max);
-  let tempMin = Math.round(response.data.main.temp_min);
+  metricTemp = Math.round(response.data.main.temp);
+  metricTempMax = Math.round(response.data.main.temp_max);
+  metricTempMin = Math.round(response.data.main.temp_min);
   let icon = response.data.weather[0].icon;
   currentCity.innerHTML = `${city}`;
-  currentTemp.innerHTML = `${temp}`;
+  currentTemp.innerHTML = `${metricTemp}`;
   currentConditions.innerHTML = `${conditions}`;
-  currentTempMax.innerHTML = `${tempMax}`;
-  currentTempMin.innerHTML = `${tempMin}`;
+  currentTempMax.innerHTML = `${metricTempMax}`;
+  currentTempMin.innerHTML = `${metricTempMin}`;
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
@@ -99,27 +95,42 @@ function showCityData(response) {
 
 function toggleCelcius(event) {
   event.preventDefault();
-  let temperature = document.querySelector("#current-temp");
-  let unit = document.querySelector("#current-temp-unit");
 
-  temperature.innerHTML = Math.round(metricTemp);
-  unit.innerHTML = `°C`;
+  currentTemp.innerHTML = Math.round(metricTemp);
+  currentTempMax.innerHTML = Math.round(metricTempMax);
+  currentTempMin.innerHTML = Math.round(metricTempMin);
+  currentTempUnit.innerHTML = `°C`;
+  currentTempMaxUnit.innerHTML = `°C`;
+  currentTempMinUnit.innerHTML = `°C`;
 }
 function toggleFahrenheit(event) {
   event.preventDefault();
-  let temperature = document.querySelector("#current-temp");
-  let unit = document.querySelector("#current-temp-unit");
+
   let imperialTemp = (metricTemp * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(imperialTemp);
-  unit.innerHTML = `°F`;
+  let imperialTempMax = (metricTempMax * 9) / 5 + 32;
+  let imperialTempMin = (metricTempMin * 9) / 5 + 32;
+  currentTemp.innerHTML = Math.round(imperialTemp);
+  currentTempMax.innerHTML = Math.round(imperialTempMax);
+  currentTempMin.innerHTML = Math.round(imperialTempMin);
+  currentTempUnit.innerHTML = `°F`;
+  currentTempMaxUnit.innerHTML = `°F`;
+  currentTempMinUnit.innerHTML = `°F`;
 }
 
 let currentDate = new Date();
 let pageDate = document.querySelector("#page-date");
 pageDate.innerHTML = formatPageDate(currentDate);
 
-let units = `metric`;
 let metricTemp = null;
+let metricTempMax = null;
+let metricTempMin = null;
+
+let currentTemp = document.querySelector("#current-temp");
+let currentTempUnit = document.querySelector("#current-temp-unit");
+let currentTempMax = document.querySelector("#current-temp-max");
+let currentTempMaxUnit = document.querySelector("#current-temp-max-unit");
+let currentTempMin = document.querySelector("#current-temp-min");
+let currentTempMinUnit = document.querySelector("#current-temp-min-unit");
 
 let clickCelcius = document.querySelector("#toggle-celcius");
 clickCelcius.addEventListener("click", toggleCelcius);
