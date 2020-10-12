@@ -39,21 +39,6 @@ function formatPageDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function toggleCelcius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector(".current-temp");
-  let unit = document.querySelector("#current-temp-unit");
-  temperature.innerHTML = `24`;
-  unit.innerHTML = `°C`;
-}
-function toggleFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector(".current-temp");
-  let unit = document.querySelector("#current-temp-unit");
-  temperature.innerHTML = `75`;
-  unit.innerHTML = `°F`;
-}
-
 function cityInput(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -62,7 +47,6 @@ function cityInput(event) {
 
 function getCityData(response) {
   let city = `q=${response}`;
-  let units = `metric`;
   let apiKey = `aff49264e3b244a0afae2d8202fca638`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
   axios
@@ -77,7 +61,6 @@ function getLocation() {
 function getLocalData(position) {
   let latitude = `lat=${position.coords.latitude}`;
   let longitude = `lon=${position.coords.longitude}`;
-  let units = `metric`;
   let apiKey = `aff49264e3b244a0afae2d8202fca638`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?`;
   axios
@@ -93,7 +76,10 @@ function showCityData(response) {
   let currentTempMin = document.querySelector("#current-temp-min");
   let currentIcon = document.querySelector("#current-icon");
   let city = response.data.name;
-  let temp = Math.round(response.data.main.temp);
+
+  metricTemp = response.data.main.temp;
+
+  let temp = Math.round(metricTemp);
   let conditions = response.data.weather[0].description;
   let tempMax = Math.round(response.data.main.temp_max);
   let tempMin = Math.round(response.data.main.temp_min);
@@ -111,12 +97,33 @@ function showCityData(response) {
   console.log(response.data);
 }
 
+function toggleCelcius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temp");
+  let unit = document.querySelector("#current-temp-unit");
+
+  temperature.innerHTML = Math.round(metricTemp);
+  unit.innerHTML = `°C`;
+}
+function toggleFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temp");
+  let unit = document.querySelector("#current-temp-unit");
+  let imperialTemp = (metricTemp * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(imperialTemp);
+  unit.innerHTML = `°F`;
+}
+
 let currentDate = new Date();
 let pageDate = document.querySelector("#page-date");
 pageDate.innerHTML = formatPageDate(currentDate);
 
+let units = `metric`;
+let metricTemp = null;
+
 let clickCelcius = document.querySelector("#toggle-celcius");
 clickCelcius.addEventListener("click", toggleCelcius);
+
 let clickFahrenheit = document.querySelector("#toggle-fahrenheit");
 clickFahrenheit.addEventListener("click", toggleFahrenheit);
 

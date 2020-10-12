@@ -38,6 +38,7 @@
                       type="submit"
                       class="btn btn-secondary"
                       value="Search"
+                      autocomplete="off"
                     />
                   </form>
                 </span>
@@ -52,10 +53,8 @@
                 </button>
               </div>
               <div class="col-sm-3 toggle-unit toggle-unit-bar">
-                <a href="#" id="toggle-celcius" class="toggle-unit">°C</a>/<a
-                  href="#"
-                  id="toggle-fahrenheit"
-                  class="toggle-unit"
+                <a href="#" id="toggle-celcius" class="toggle-unit unit">°C</a
+                >/<a href="#" id="toggle-fahrenheit" class="toggle-unit unit"
                   >°F</a
                 >
               </div>
@@ -70,9 +69,10 @@
                     Sunny
                   </div>
                   <div class="col current-temp-range temperature">
-                    <span id="current-temp-max">1</span
-                    ><span class="unit">°C</span>/<span id="current-temp-min"
-                      >1</span
+                    <span id="current-temp-max"></span
+                    ><span class="unit">°C</span>/<span
+                      id="current-temp-min"
+                    ></span
                     ><span class="unit">°C</span>
                   </div>
                 </div>
