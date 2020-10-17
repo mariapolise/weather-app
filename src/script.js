@@ -128,6 +128,45 @@ function formatSecondDay(date) {
   let secondDay = days[date.getDay()];
   return `${secondDay}`;
 }
+function formatThirdDay(date) {
+  let days = [
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+  ];
+  let thirdDay = days[date.getDay()];
+  return `${thirdDay}`;
+}
+function formatFourthDay(date) {
+  let days = [
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+  ];
+  let fourthDay = days[date.getDay()];
+  return `${fourthDay}`;
+}
+function formatFifthDay(date) {
+  let days = [
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+  ];
+  let fifthDay = days[date.getDay()];
+  return `${fifthDay}`;
+}
 
 function showForecast(response) {
   let firstForecast = response.data.list[7];
@@ -164,7 +203,7 @@ function showForecast(response) {
 
   let thirdForecast = response.data.list[23];
   let thirdForecastElement = document.querySelector("#third-forecast");
-  thirdForecastElement.innerHTML = `<span class="day">Tuesday</span>
+  thirdForecastElement.innerHTML = `<span id="third-day" class="day">Tuesday</span>
     <br />
     <span class="third-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
@@ -175,9 +214,11 @@ function showForecast(response) {
     ${Math.round(thirdForecast.main.temp_max)}°C/${Math.round(
     thirdForecast.main.temp_min
   )}°C</span>`;
+  let thirdDay = document.querySelector("#third-day");
+  thirdDay.innerHTML = formatThirdDay(currentDate);
   let fourthForecast = response.data.list[31];
   let fourthForecastElement = document.querySelector("#fourth-forecast");
-  fourthForecastElement.innerHTML = `<span class="day">Tuesday</span>
+  fourthForecastElement.innerHTML = `<span id="fourth-day" class="day">Tuesday</span>
     <br />
     <span class="fourth-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
@@ -189,9 +230,11 @@ function showForecast(response) {
     ${Math.round(fourthForecast.main.temp_max)}°C/${Math.round(
     fourthForecast.main.temp_min
   )}°C</span>`;
+  let fourthDay = document.querySelector("#fourth-day");
+  fourthDay.innerHTML = formatFourthDay(currentDate);
   let fifthForecast = response.data.list[39];
   let fifthForecastElement = document.querySelector("#fifth-forecast");
-  fifthForecastElement.innerHTML = `<span class="day">Tuesday</span>
+  fifthForecastElement.innerHTML = `<span id="fifth-day" class="day">Tuesday</span>
     <br />
     <span class="fifth-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
@@ -203,6 +246,8 @@ function showForecast(response) {
     ${Math.round(fifthForecast.main.temp_max)}°C/${Math.round(
     fifthForecast.main.temp_min
   )}°C</span>`;
+  let fifthDay = document.querySelector("#fifth-day");
+  fifthDay.innerHTML = formatFifthDay(currentDate);
   console.log(response.data);
 }
 
@@ -233,10 +278,6 @@ function toggleFahrenheit(event) {
 let currentDate = new Date();
 let pageDate = document.querySelector("#page-date");
 pageDate.innerHTML = formatPageDate(currentDate);
-//let firstDay = document.querySelector("#first-day");
-//firstDay.innerHTML = formatFirstDay(currentDate);
-//let secondDay = document.querySelector("#second-day");
-//secondDay.innerHTML = formatFirstDay(currentDate);
 
 let metricTemp = null;
 let metricTempMax = null;
