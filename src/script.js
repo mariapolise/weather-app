@@ -102,83 +102,90 @@ function showCityData(response) {
   currentIcon.setAttribute("alt", `${conditions} icon`);
   console.log(response.data);
 }
+function formatFirstDay(date) {
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  let firstDay = days[date.getDay()];
+  return `${firstDay}`;
+}
 
 function showForecast(response) {
   let firstForecast = response.data.list[7];
   let firstForecastElement = document.querySelector("#first-forecast");
-  firstForecastElement.innerHTML = `<span class="first-day">Monday</span>
+
+  firstForecastElement.innerHTML = `<span id="first-day" class="day"></span>
     <br />
     <span class="first-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
       firstForecast.weather[0].icon
-    }@2x.png" alt="${firstForecast.weather[0].conditions}>
+    }@2x.png" alt="${firstForecast.weather[0].description}>
     </span>
-     <br />
-    <span class="temp-range temperature"
-    >${Math.round(firstForecast.main.temp_max)}°C/${Math.round(
+    <span class="temp-range"><br />
+    ${Math.round(firstForecast.main.temp_max)}°C/${Math.round(
     firstForecast.main.temp_min
-  )}°C</span
-    >`;
+  )}°C</span>`;
+  firstDay.innerHTML = formatFirstDay(currentDate);
   let secondForecast = response.data.list[15];
   let secondForecastElement = document.querySelector("#second-forecast");
-  secondForecastElement.innerHTML = `<span class="second-day">Tuesday</span>
+  secondForecastElement.innerHTML = `<span id="second-day" class="day">Mon</span>
     <br />
     <span class="second-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
       secondForecast.weather[0].icon
-    }@2x.png" alt="${secondForecast.weather[0].conditions}>
+    }@2x.png" alt="${secondForecast.weather[0].description}>
     </span>
-    <br />
-    <span class="temp-range temperature"
-    >${Math.round(secondForecast.main.temp_max)}°C/${Math.round(
+    <span class="temp-range"><br />
+    ${Math.round(secondForecast.main.temp_max)}°C/${Math.round(
     secondForecast.main.temp_min
-  )}°C</span
-    >`;
+  )}°C</span>`;
   let thirdForecast = response.data.list[23];
   let thirdForecastElement = document.querySelector("#third-forecast");
-  thirdForecastElement.innerHTML = `<span class="third-day">Tuesday</span>
+  thirdForecastElement.innerHTML = `<span class="day">Tuesday</span>
     <br />
     <span class="third-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
       thirdForecast.weather[0].icon
-    }@2x.png" alt="${thirdForecast.weather[0].conditions}>
+    }@2x.png" alt="${thirdForecast.weather[0].description}>
     </span>
-    <br />
-    <span class="temp-range temperature"
-    >${Math.round(thirdForecast.main.temp_max)}°C/${Math.round(
+    <span class="temp-range"><br />
+    ${Math.round(thirdForecast.main.temp_max)}°C/${Math.round(
     thirdForecast.main.temp_min
-  )}°C</span
-    >`;
+  )}°C</span>`;
   let fourthForecast = response.data.list[31];
   let fourthForecastElement = document.querySelector("#fourth-forecast");
-  fourthForecastElement.innerHTML = `<span class="fourth-day">Tuesday</span>
+  fourthForecastElement.innerHTML = `<span class="day">Tuesday</span>
     <br />
     <span class="fourth-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
       fourthForecast.weather[0].icon
-    }@2x.png" alt="${fourthForecast.weather[0].conditions}>
+    }@2x.png" alt="${fourthForecast.weather[0].description}>
     </span>
     <br />
-    <span class="temp-range temperature"
-    >${Math.round(fourthForecast.main.temp_max)}°C/${Math.round(
+    <span class="temp-range"><br />
+    ${Math.round(fourthForecast.main.temp_max)}°C/${Math.round(
     fourthForecast.main.temp_min
-  )}°C</span
-    >`;
+  )}°C</span>`;
   let fifthForecast = response.data.list[39];
   let fifthForecastElement = document.querySelector("#fifth-forecast");
-  fifthForecastElement.innerHTML = `<span class="fifth-day">Tuesday</span>
+  fifthForecastElement.innerHTML = `<span class="day">Tuesday</span>
     <br />
     <span class="fifth-icon">
     <img class="icon" src="http://openweathermap.org/img/wn/${
       fifthForecast.weather[0].icon
-    }@2x.png" alt="${fifthForecast.weather[0].conditions}>
+    }@2x.png" alt="${fifthForecast.weather[0].description}>
     </span>
     <br />
-    <span class="temp-range temperature"
-    >${Math.round(fifthForecast.main.temp_max)}°C/${Math.round(
+    <span class="temp-range"><br />
+    ${Math.round(fifthForecast.main.temp_max)}°C/${Math.round(
     fifthForecast.main.temp_min
-  )}°C</span
-    >`;
+  )}°C</span>`;
   console.log(response.data);
 }
 
@@ -209,6 +216,10 @@ function toggleFahrenheit(event) {
 let currentDate = new Date();
 let pageDate = document.querySelector("#page-date");
 pageDate.innerHTML = formatPageDate(currentDate);
+let firstDay = document.querySelector("#first-day");
+//firstDay.innerHTML = formatFirstDay(currentDate);
+//let secondDay = document.querySelector("#second-day");
+//secondDay.innerHTML = formatFirstDay(currentDate);
 
 let metricTemp = null;
 let metricTempMax = null;

@@ -82,8 +82,8 @@ a.toggle-unit:hover {
   text-transform: capitalize;
 }
 .weather-alert {
-  background-color: rgb(218, 189, 187);
-  font-size: 1.2rem;
+  background-color: rgb(234, 168, 152);
+  font-size: 0.8rem;
   margin: 0.2rem 0.2rem 0.6rem;
   padding: 0.2rem;
   border-style: solid;
@@ -100,7 +100,7 @@ a.toggle-unit:hover {
   padding: 0;
   text-align: center;
   margin: 0.3rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   background-image: linear-gradient(
     to top,
     #c4c5c7 0%,
@@ -111,34 +111,17 @@ a.toggle-unit:hover {
 .card-text {
   position: relative;
   top: 1.5rem;
+  font-size: 0.8rem;
+}
+.day {
+  font-size: 1rem;
 }
 
-.first-day,
-.second-day,
-.third-day,
-.fourth-day,
-.fifth-day {
-  font-size: 0.9rem;
-}
 .icon {
   padding: 0rem;
-  width: 2rem;
+  width: 2.5rem;
 }
 
-.first-weather,
-.second-weather,
-.third-weather,
-.fourth-weather,
-.fifth-weather {
-  font-size: 0.7rem;
-}
-.temp-range,
-.second-temp-range,
-.third-temp-range,
-.fourth-temp-range,
-.fifth-temp-range {
-  font-size: 0.5rem;
-}
 #page-date {
   padding: 0.2rem;
   font-size: 0.5rem;
