@@ -115,11 +115,23 @@ function formatFirstDay(date) {
   let firstDay = days[date.getDay()];
   return `${firstDay}`;
 }
+function formatSecondDay(date) {
+  let days = [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+  ];
+  let secondDay = days[date.getDay()];
+  return `${secondDay}`;
+}
 
 function showForecast(response) {
   let firstForecast = response.data.list[7];
   let firstForecastElement = document.querySelector("#first-forecast");
-
   firstForecastElement.innerHTML = `<span id="first-day" class="day"></span>
     <br />
     <span class="first-icon">
@@ -131,7 +143,9 @@ function showForecast(response) {
     ${Math.round(firstForecast.main.temp_max)}°C/${Math.round(
     firstForecast.main.temp_min
   )}°C</span>`;
+  let firstDay = document.querySelector("#first-day");
   firstDay.innerHTML = formatFirstDay(currentDate);
+
   let secondForecast = response.data.list[15];
   let secondForecastElement = document.querySelector("#second-forecast");
   secondForecastElement.innerHTML = `<span id="second-day" class="day">Mon</span>
@@ -145,6 +159,9 @@ function showForecast(response) {
     ${Math.round(secondForecast.main.temp_max)}°C/${Math.round(
     secondForecast.main.temp_min
   )}°C</span>`;
+  let secondDay = document.querySelector("#second-day");
+  secondDay.innerHTML = formatSecondDay(currentDate);
+
   let thirdForecast = response.data.list[23];
   let thirdForecastElement = document.querySelector("#third-forecast");
   thirdForecastElement.innerHTML = `<span class="day">Tuesday</span>
@@ -216,7 +233,7 @@ function toggleFahrenheit(event) {
 let currentDate = new Date();
 let pageDate = document.querySelector("#page-date");
 pageDate.innerHTML = formatPageDate(currentDate);
-let firstDay = document.querySelector("#first-day");
+//let firstDay = document.querySelector("#first-day");
 //firstDay.innerHTML = formatFirstDay(currentDate);
 //let secondDay = document.querySelector("#second-day");
 //secondDay.innerHTML = formatFirstDay(currentDate);
