@@ -55,14 +55,14 @@ a.toggle-unit:hover {
   left: 3rem;
 }
 #current-city {
-  font-size: 3rem;
+  font-size: 2.3rem;
   text-align: center;
   text-transform: capitalize;
   position: relative;
   top: 1rem;
 }
 .current-temp {
-  font-size: 3.2rem;
+  font-size: 3rem;
   text-align: center;
   position: relative;
   top: 2rem;
@@ -73,7 +73,7 @@ a.toggle-unit:hover {
   position: relative;
   left: 1rem;
 }
-.current-conditions,
+#current-conditions,
 .current-temp-range {
   position: relative;
   top: 2.3rem;
@@ -120,6 +120,11 @@ a.toggle-unit:hover {
 .fifth-day {
   font-size: 0.9rem;
 }
+.icon {
+  padding: 0rem;
+  width: 2rem;
+}
+
 .first-weather,
 .second-weather,
 .third-weather,
@@ -127,7 +132,7 @@ a.toggle-unit:hover {
 .fifth-weather {
   font-size: 0.7rem;
 }
-.first-temp-range,
+.temp-range,
 .second-temp-range,
 .third-temp-range,
 .fourth-temp-range,
@@ -138,11 +143,11 @@ a.toggle-unit:hover {
   padding: 0.2rem;
   font-size: 0.5rem;
 }
-.signature {
-  padding: 0.2rem;
+#signature-link {
   font-size: 1rem;
+  color: #212529;
 }
-#signature {
+.signature {
   padding: 0.2rem;
   font-size: 1rem;
 }

@@ -53,6 +53,11 @@ function getCityData(response) {
   axios
     .get(`${apiUrl}${city}&appid=${apiKey}&units=${units}`)
     .then(showCityData);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?`;
+  axios
+    .get(`${apiUrl}${city}&appid=${apiKey}&units=${units}`)
+    .then(showForecast);
 }
 
 function getLocation() {
@@ -68,6 +73,11 @@ function getLocalData(position) {
   axios
     .get(`${apiUrl}${latitude}&${longitude}&appid=${apiKey}&units=${units}`)
     .then(showCityData);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?`;
+  axios
+    .get(`${apiUrl}${latitude}&${longitude}&appid=${apiKey}&units=${units}`)
+    .then(showForecast);
 }
 
 function showCityData(response) {
@@ -90,6 +100,85 @@ function showCityData(response) {
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   currentIcon.setAttribute("alt", `${conditions} icon`);
+  console.log(response.data);
+}
+
+function showForecast(response) {
+  let firstForecast = response.data.list[7];
+  let firstForecastElement = document.querySelector("#first-forecast");
+  firstForecastElement.innerHTML = `<span class="first-day">Monday</span>
+    <br />
+    <span class="first-icon">
+    <img class="icon" src="http://openweathermap.org/img/wn/${
+      firstForecast.weather[0].icon
+    }@2x.png" alt="${firstForecast.weather[0].conditions}>
+    </span>
+     <br />
+    <span class="temp-range temperature"
+    >${Math.round(firstForecast.main.temp_max)}°C/${Math.round(
+    firstForecast.main.temp_min
+  )}°C</span
+    >`;
+  let secondForecast = response.data.list[15];
+  let secondForecastElement = document.querySelector("#second-forecast");
+  secondForecastElement.innerHTML = `<span class="second-day">Tuesday</span>
+    <br />
+    <span class="second-icon">
+    <img class="icon" src="http://openweathermap.org/img/wn/${
+      secondForecast.weather[0].icon
+    }@2x.png" alt="${secondForecast.weather[0].conditions}>
+    </span>
+    <br />
+    <span class="temp-range temperature"
+    >${Math.round(secondForecast.main.temp_max)}°C/${Math.round(
+    secondForecast.main.temp_min
+  )}°C</span
+    >`;
+  let thirdForecast = response.data.list[23];
+  let thirdForecastElement = document.querySelector("#third-forecast");
+  thirdForecastElement.innerHTML = `<span class="third-day">Tuesday</span>
+    <br />
+    <span class="third-icon">
+    <img class="icon" src="http://openweathermap.org/img/wn/${
+      thirdForecast.weather[0].icon
+    }@2x.png" alt="${thirdForecast.weather[0].conditions}>
+    </span>
+    <br />
+    <span class="temp-range temperature"
+    >${Math.round(thirdForecast.main.temp_max)}°C/${Math.round(
+    thirdForecast.main.temp_min
+  )}°C</span
+    >`;
+  let fourthForecast = response.data.list[31];
+  let fourthForecastElement = document.querySelector("#fourth-forecast");
+  fourthForecastElement.innerHTML = `<span class="fourth-day">Tuesday</span>
+    <br />
+    <span class="fourth-icon">
+    <img class="icon" src="http://openweathermap.org/img/wn/${
+      fourthForecast.weather[0].icon
+    }@2x.png" alt="${fourthForecast.weather[0].conditions}>
+    </span>
+    <br />
+    <span class="temp-range temperature"
+    >${Math.round(fourthForecast.main.temp_max)}°C/${Math.round(
+    fourthForecast.main.temp_min
+  )}°C</span
+    >`;
+  let fifthForecast = response.data.list[39];
+  let fifthForecastElement = document.querySelector("#fifth-forecast");
+  fifthForecastElement.innerHTML = `<span class="fifth-day">Tuesday</span>
+    <br />
+    <span class="fifth-icon">
+    <img class="icon" src="http://openweathermap.org/img/wn/${
+      fifthForecast.weather[0].icon
+    }@2x.png" alt="${fifthForecast.weather[0].conditions}>
+    </span>
+    <br />
+    <span class="temp-range temperature"
+    >${Math.round(fifthForecast.main.temp_max)}°C/${Math.round(
+    fifthForecast.main.temp_min
+  )}°C</span
+    >`;
   console.log(response.data);
 }
 
