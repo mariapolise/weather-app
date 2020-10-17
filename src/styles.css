@@ -71,7 +71,7 @@ a.toggle-unit:hover {
   text-align: center;
   font-size: 7.5rem;
   position: relative;
-  bottom: 0.5rem;
+  left: 1rem;
 }
 #current-conditions,
 .current-temp-range {
@@ -87,7 +87,6 @@ a.toggle-unit:hover {
   margin: 0.2rem 0.2rem 0.6rem;
   padding: 0.2rem;
   border-style: solid;
-  border-width: 0.15rem;
 }
 .card {
   margin: 0;
