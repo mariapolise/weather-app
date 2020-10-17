@@ -100,6 +100,9 @@ function showCityData(response) {
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   currentIcon.setAttribute("alt", `${conditions} icon`);
+  currentTempUnit.innerHTML = `°C`;
+  currentTempMaxUnit.innerHTML = `°C`;
+  currentTempMinUnit.innerHTML = `°C`;
   console.log(response.data);
 }
 function formatFirstDay(date) {
@@ -253,7 +256,6 @@ function showForecast(response) {
 
 function toggleCelcius(event) {
   event.preventDefault();
-
   currentTemp.innerHTML = Math.round(metricTemp);
   currentTempMax.innerHTML = Math.round(metricTempMax);
   currentTempMin.innerHTML = Math.round(metricTempMin);
@@ -263,7 +265,6 @@ function toggleCelcius(event) {
 }
 function toggleFahrenheit(event) {
   event.preventDefault();
-
   let imperialTemp = (metricTemp * 9) / 5 + 32;
   let imperialTempMax = (metricTempMax * 9) / 5 + 32;
   let imperialTempMin = (metricTempMin * 9) / 5 + 32;
