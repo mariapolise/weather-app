@@ -1,3 +1,14 @@
+let metricTemp = null;
+let metricTempMax = null;
+let metricTempMin = null;
+
+let currentTemp = document.querySelector("#current-temp");
+let currentTempUnit = document.querySelector("#current-temp-unit");
+let currentTempMax = document.querySelector("#current-temp-max");
+let currentTempMaxUnit = document.querySelector("#current-temp-max-unit");
+let currentTempMin = document.querySelector("#current-temp-min");
+let currentTempMinUnit = document.querySelector("#current-temp-min-unit");
+
 function formatPageDate(date) {
   let year = date.getFullYear();
 
@@ -103,8 +114,13 @@ function showCityData(response) {
   currentTempUnit.innerHTML = `°C`;
   currentTempMaxUnit.innerHTML = `°C`;
   currentTempMinUnit.innerHTML = `°C`;
+  let weatherAlert = document.querySelector("#weather-alert");
+  let windSpeed = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
+  weatherAlert.innerHTML = `<em>Wind Speed: ${windSpeed}km/hr, Humidity: ${humidity}%</em>`;
   console.log(response.data);
 }
+
 function formatFirstDay(date) {
   let days = [
     "Monday",
@@ -279,17 +295,6 @@ function toggleFahrenheit(event) {
 let currentDate = new Date();
 let pageDate = document.querySelector("#page-date");
 pageDate.innerHTML = formatPageDate(currentDate);
-
-let metricTemp = null;
-let metricTempMax = null;
-let metricTempMin = null;
-
-let currentTemp = document.querySelector("#current-temp");
-let currentTempUnit = document.querySelector("#current-temp-unit");
-let currentTempMax = document.querySelector("#current-temp-max");
-let currentTempMaxUnit = document.querySelector("#current-temp-max-unit");
-let currentTempMin = document.querySelector("#current-temp-min");
-let currentTempMinUnit = document.querySelector("#current-temp-min-unit");
 
 let clickCelcius = document.querySelector("#toggle-celcius");
 clickCelcius.addEventListener("click", toggleCelcius);
