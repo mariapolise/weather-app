@@ -95,12 +95,17 @@ function showCityData(response) {
   let currentCity = document.querySelector("#current-city");
   let currentConditions = document.querySelector("#current-conditions");
   let currentIcon = document.querySelector("#current-icon");
+  let weatherAlert = document.querySelector("#weather-alert");
   let city = response.data.name;
   let conditions = response.data.weather[0].description;
+  let icon = response.data.weather[0].icon;
+  let windSpeed = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
+
   metricTemp = Math.round(response.data.main.temp);
   metricTempMax = Math.round(response.data.main.temp_max);
   metricTempMin = Math.round(response.data.main.temp_min);
-  let icon = response.data.weather[0].icon;
+
   currentCity.innerHTML = `${city}`;
   currentTemp.innerHTML = `${metricTemp}`;
   currentConditions.innerHTML = `${conditions}`;
@@ -114,10 +119,8 @@ function showCityData(response) {
   currentTempUnit.innerHTML = `°C`;
   currentTempMaxUnit.innerHTML = `°C`;
   currentTempMinUnit.innerHTML = `°C`;
-  let weatherAlert = document.querySelector("#weather-alert");
-  let windSpeed = response.data.wind.speed;
-  let humidity = response.data.main.humidity;
-  weatherAlert.innerHTML = `<em>Wind Speed: ${windSpeed}km/hr, Humidity: ${humidity}%</em>`;
+
+  weatherAlert.innerHTML = `<em>.....Wind Speed: ${windSpeed}km/hr.....Precipitation: ${humidity}%.....</em>`;
   console.log(response.data);
 }
 

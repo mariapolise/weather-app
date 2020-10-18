@@ -21,19 +21,19 @@ a.toggle-unit:hover {
   color: #212529;
   font-weight: bold;
 }
+
 .col,
 .row {
   padding: 0;
   margin: 0;
 }
 
+.local-button {
+  padding: 0.1rem;
+}
 #local-button {
   display: inline;
   vertical-align: top;
-}
-
-.local-button {
-  padding: 0.1rem;
 }
 
 .city-search {
@@ -44,6 +44,7 @@ a.toggle-unit:hover {
 #city-input {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .toggle-unit {
   color: #212529;
   text-align: right;
@@ -53,7 +54,8 @@ a.toggle-unit:hover {
   position: relative;
   left: 6rem;
 }
-#current-city {
+
+.current-city {
   font-size: 3rem;
   text-align: center;
   text-transform: capitalize;
@@ -72,7 +74,6 @@ a.toggle-unit:hover {
   position: relative;
   right: 0.3rem;
 }
-#current-conditions,
 .current-temp-range {
   position: relative;
   top: 2.3rem;
@@ -80,7 +81,7 @@ a.toggle-unit:hover {
   font-size: 1.3rem;
   text-transform: capitalize;
 }
-#weather-alert {
+.weather-alert {
   background-color: rgb(234, 168, 152);
   font-size: 0.5rem;
   margin: 0.2rem 0.2rem 0.6rem;
@@ -119,17 +120,19 @@ a.toggle-unit:hover {
   padding: 0rem;
   width: 2.5rem;
 }
-#page-date {
+
+.page-date {
   padding: 0.2rem;
   font-size: 0.5rem;
 }
-#signature-link {
-  font-size: 0.8rem;
-  color: #212529;
-  font-weight: bolder;
-}
+
 .signature {
   padding: 0.2rem;
   text-align: left;
   font-size: 0.8rem;
+}
+.signature-link {
+  color: #212529;
+  font-weight: bolder;
+  text-decoration: underline;
 }

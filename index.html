@@ -63,9 +63,11 @@
             <div class="row d-flex flex-nowrap">
               <div class="col-6">
                 <div class="row">
-                  <div class="col" id="current-city"></div>
+                  <div class="col current-city" id="current-city"></div>
                   <div class="w-100"></div>
-                  <div id="current-conditions" class="col">Sunny</div>
+                  <div id="current-conditions" class="col current-temp-range">
+                    Sunny
+                  </div>
                   <div class="col current-temp-range temperature">
                     <span id="current-temp-max">1</span
                     ><span id="current-temp-max-unit">°C</span>/<span
@@ -101,7 +103,7 @@
             </div>
             <br />
             <div class="row d-flex flex-nowrap">
-              <div id="weather-alert" class="col"></div>
+              <div id="weather-alert" class="col weather-alert"></div>
             </div>
 
             <div class="row d-flex flex-nowrap">
@@ -144,10 +146,13 @@
           </div>
         </div>
       </h1>
-      <h3 id="page-date">date</h3>
+      <h3 id="page-date" class="page-date">date</h3>
       <br />
       <h3 class="signature">
-        <a href="https://github.com/mariapolise/weather-app" id="signature-link"
+        <a
+          href="https://github.com/mariapolise/weather-app"
+          id="signature-link"
+          class="signature-link"
           >Open-source Code</a
         >
         by Maria Polise
