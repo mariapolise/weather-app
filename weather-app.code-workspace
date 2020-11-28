@@ -5,6 +5,12 @@
     },
     {
       "path": "src"
+    },
+    {
+      "path": "../../../Desktop/SheCodes/weather-react"
+    },
+    {
+      "path": "../../../Desktop/SheCodes/SheCodesReact/weather-react"
     }
   ],
   "settings": {}
