@@ -121,7 +121,7 @@ function showCityData(response) {
   currentTempMinUnit.innerHTML = `°C`;
 
   weatherAlert.innerHTML = `<em>.....Wind Speed: ${windSpeed}km/hr.....Precipitation: ${humidity}%.....</em>`;
-  console.log(response.data);
+  
 }
 
 function formatFirstDay(date) {
@@ -270,7 +270,7 @@ function showForecast(response) {
   )}°C</span>`;
   let fifthDay = document.querySelector("#fifth-day");
   fifthDay.innerHTML = formatFifthDay(currentDate);
-  console.log(response.data);
+  
 }
 
 function toggleCelcius(event) {
